@@ -1,13 +1,15 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Poderoso Chefão");
-        meuFilme.setAnoDeLancamento(1970);
+        Filme meuFilme = new Filme("Poderoso Chefão",1970);
         meuFilme.setDuracaoEmMinutos(180);
         meuFilme.setIncluidoNoPlano(true);
 
@@ -17,9 +19,15 @@ public class Principal {
         meuFilme.avalia(10.0);
         System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Filme outroFilme = new Filme("Vingadores", 2012);
+        outroFilme.setDuracaoEmMinutos(150);
+        outroFilme.setIncluidoNoPlano(false);
+
+        Filme outroFilme2 = new Filme("Vingadores - Guerra Infinita", 2018);
+        outroFilme2.setDuracaoEmMinutos(150);
+        outroFilme2.setIncluidoNoPlano(false);
+
+        Serie lost = new Serie("Lost", 2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
@@ -35,6 +43,14 @@ public class Principal {
         episodio.setTotalVisualizacoes(380);
 
         filtro.filtra(episodio);
+
+        ArrayList<Filme> lista = new ArrayList<>();
+        lista.add(meuFilme);
+
+        System.out.println("Tamanho da lista: " +lista.size());
+        System.out.println("Primeiro Filme: " +lista.get(0));
+        System.out.println(lista);
+
 
     }
 
