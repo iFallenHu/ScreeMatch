@@ -5,6 +5,7 @@ import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrincipalComListas {
 
@@ -27,10 +28,15 @@ public class PrincipalComListas {
             System.out.println(item.getNome());
             if (item instanceof Filme filme && filme.getClassificacao() > 2) {
                 System.out.println("Classificação: " + filme.getClassificacao());
-
-
             }
 
         }
+        ArrayList<Titulo> lista2 = new ArrayList<>();
+        lista2.add(meuFilme);
+        lista2.add(outroFilme);
+        lista2.add(lost);
+
+        Collections.sort(lista2);
+        System.out.println(lista2);
     }
 }
